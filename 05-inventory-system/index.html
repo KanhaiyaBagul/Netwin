@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory Stock & Negative Stock Guard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div>
+        <h1>Inventory Stock Management</h1>
+        <p>Assignment Type 5: Prevent Negative Stock, Atomic Restock & Low-Stock Alerts</p>
+      </div>
+      <div>
+        <a href="../index.html" class="nav-link">← All Projects</a>
+      </div>
+    </header>
+
+    <div id="alertBanner" class="alert-banner" role="alert"></div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Unique Products</div>
+        <div class="stat-value" id="statProducts" style="color: #2b6cb0;">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Total Units in Stock</div>
+        <div class="stat-value" id="statUnits" style="color: #38a169;">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Low Stock Alerts</div>
+        <div class="stat-value" id="statAlerts" style="color: #e53e3e;">0</div>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <!-- 1. Add Product -->
+      <div class="card">
+        <h2>1. Add Product</h2>
+        <form id="addForm">
+          <div class="form-group">
+            <label for="sku">SKU Code *</label>
+            <input type="text" id="sku" placeholder="e.g. LAP-001" required>
+          </div>
+          <div class="form-group">
+            <label for="name">Product Name *</label>
+            <input type="text" id="name" placeholder="e.g. Wireless Mouse" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="stock">Initial Stock</label>
+              <input type="number" id="stock" min="0" value="10" required>
+            </div>
+            <div class="form-group">
+              <label for="threshold">Alert Threshold</label>
+              <input type="number" id="threshold" min="1" value="5" required>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-blue">Save Product</button>
+        </form>
+      </div>
+
+      <!-- 2. Sell / Dispatch -->
+      <div class="card">
+        <h2>2. Sell Product (Guarded)</h2>
+        <form id="sellForm">
+          <div class="form-group">
+            <label for="sellSelect">Select Product *</label>
+            <select id="sellSelect" required>
+              <option value="">-- Choose Product --</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="sellQty">Quantity to Sell *</label>
+            <input type="number" id="sellQty" min="1" placeholder="e.g. 2" required>
+          </div>
+          <button type="submit" class="btn btn-red">Process Sale</button>
+        </form>
+        <p style="font-size: 11px; color: #718096; margin-top: 6px;">Rule: Strictly rejects sales exceeding available stock.</p>
+      </div>
+
+      <!-- 3. Restock -->
+      <div class="card">
+        <h2>3. Restock Product</h2>
+        <form id="restockForm">
+          <div class="form-group">
+            <label for="restockSelect">Select Product *</label>
+            <select id="restockSelect" required>
+              <option value="">-- Choose Product --</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="restockQty">Quantity to Add *</label>
+            <input type="number" id="restockQty" min="1" placeholder="e.g. 15" required>
+          </div>
+          <button type="submit" class="btn btn-green">Add Stock</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Inventory Table -->
+    <div class="card" style="margin-bottom: 20px;">
+      <h2>Stock Inventory Table</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>SKU</th>
+            <th>Product Name</th>
+            <th>Current Stock</th>
+            <th>Threshold</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="inventoryBody"></tbody>
+      </table>
+    </div>
+
+    <!-- Logs -->
+    <div class="card">
+      <h2>Transaction & Stock Activity Log</h2>
+      <div id="logBox" class="log-box"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

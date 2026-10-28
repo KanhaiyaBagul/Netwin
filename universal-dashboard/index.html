@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="top-row">
+      <h2>Management System</h2>
+      <a href="../index.html">← All Projects</a>
+    </div>
+
+    <!-- Alert / Status message -->
+    <div id="statusMsg" class="msg-box"></div>
+
+    <!-- Simple Add Form -->
+    <div class="form-section">
+      <h3>Add New Record</h3>
+      <form id="mainForm">
+        <div class="row">
+          <div class="col">
+            <label>ID / Code</label>
+            <input type="text" id="recordId" placeholder="e.g. 101" required>
+          </div>
+          <div class="col">
+            <label>Name / Title</label>
+            <input type="text" id="recordName" placeholder="e.g. Server Maintenance" required>
+          </div>
+          <div class="col">
+            <label>Category</label>
+            <select id="recordCategory">
+              <option value="General">General</option>
+              <option value="Priority">Priority</option>
+              <option value="Emergency">Emergency</option>
+            </select>
+          </div>
+          <div class="col">
+            <label>Value / Quantity</label>
+            <input type="number" id="recordValue" min="1" value="1" required>
+          </div>
+          <div class="col">
+            <label>Status</label>
+            <select id="recordStatus">
+              <option value="Pending">Pending</option>
+              <option value="Active">Active</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button type="submit" class="btn btn-save">Add Record</button>
+          <button type="button" id="btnResetAll" class="btn btn-clear">Clear Form</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Search & Filter Controls -->
+    <div class="filter-section">
+      <input type="text" id="searchBox" placeholder="Search by name or ID...">
+      <select id="filterDropdown">
+        <option value="ALL">All Status</option>
+        <option value="Active">Active</option>
+        <option value="Pending">Pending</option>
+        <option value="Completed">Completed</option>
+      </select>
+      <span class="count-text" id="totalCountText">Total: 0</span>
+    </div>
+
+    <!-- Data Table -->
+    <table class="simple-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name / Title</th>
+          <th>Category</th>
+          <th>Value</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <!-- Rendered by script.js -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

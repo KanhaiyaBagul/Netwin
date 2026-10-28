@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Shift Scheduling - Assignment 2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="top-header">
+      <div>
+        <h1>Employee Shift Scheduling System</h1>
+        <p>Assignment 2: Conflict Prevention, Employee Assignment & Overlap Detection</p>
+      </div>
+      <div>
+        <a href="../index.html" class="nav-link">← All Projects</a>
+      </div>
+    </header>
+
+    <!-- Conflict & Status Alert Banner -->
+    <div id="statusAlert" class="alert-box" role="alert"></div>
+
+    <!-- Exam Rubric Benchmark Demo -->
+    <div class="benchmark-card">
+      <div>
+        <strong>Exam Benchmark Test:</strong> Test overlapping shift rule (9:00-13:00 vs 13:00-16:00 touching ALLOWED, vs 12:00-15:00 REJECTED).
+      </div>
+      <div>
+        <button id="btnRunExam" class="btn-benchmark">▶ Run Benchmark Test</button>
+        <button id="btnResetAll" class="btn-reset">Reset Data</button>
+      </div>
+    </div>
+
+    <!-- 3 Forms: Add Employee, Create Shift, Assign Shift -->
+    <div class="form-grid">
+      <!-- 1. Employee Form -->
+      <div class="card">
+        <h2>1. Add Employee</h2>
+        <form id="empForm">
+          <div class="form-group">
+            <label for="empId">Employee ID *</label>
+            <input type="text" id="empId" placeholder="e.g. EMP101" required>
+          </div>
+          <div class="form-group">
+            <label for="empName">Employee Name *</label>
+            <input type="text" id="empName" placeholder="e.g. Sneha Mandlik" required>
+          </div>
+          <button type="submit" class="btn-submit btn-blue">Save Employee</button>
+        </form>
+      </div>
+
+      <!-- 2. Shift Form -->
+      <div class="card">
+        <h2>2. Create Shift</h2>
+        <form id="shiftForm">
+          <div class="form-group">
+            <label for="shiftDate">Shift Date *</label>
+            <input type="date" id="shiftDate" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="startTime">Start Time *</label>
+              <input type="time" id="startTime" required>
+            </div>
+            <div class="form-group">
+              <label for="endTime">End Time *</label>
+              <input type="time" id="endTime" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="isOvernight"> Overnight shift (crosses midnight)
+            </label>
+          </div>
+          <button type="submit" class="btn-submit btn-blue">Create Shift</button>
+        </form>
+      </div>
+
+      <!-- 3. Assign Shift Form -->
+      <div class="card">
+        <h2>3. Assign Employee to Shift</h2>
+        <form id="assignForm">
+          <div class="form-group">
+            <label for="selectEmp">Select Employee *</label>
+            <select id="selectEmp" required>
+              <option value="">-- Choose Employee --</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="selectShift">Select Shift *</label>
+            <select id="selectShift" required>
+              <option value="">-- Choose Shift --</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-submit btn-green">Assign Shift</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Shifts Filter Bar -->
+    <div class="filter-bar">
+      <div class="filter-group">
+        <label for="filterDate">Filter Shifts by Date:</label>
+        <input type="date" id="filterDate">
+        <button id="btnClearFilter" class="btn-benchmark" style="background-color: #718096;">Show All</button>
+      </div>
+      <div>
+        <span>Total Shifts: <strong id="statShiftsCount">0</strong> | Total Assignments: <strong id="statAssignCount">0</strong></span>
+      </div>
+    </div>
+
+    <!-- Scheduled Shifts Table -->
+    <div class="card">
+      <h2>Scheduled Shifts & Assigned Staff</h2>
+      <div class="table-container">
+        <table class="grid-table">
+          <thead>
+            <tr>
+              <th>Shift ID</th>
+              <th>Date</th>
+              <th>Timings</th>
+              <th>Type</th>
+              <th>Assigned Employees</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="shiftsTableBody">
+            <!-- Dynamically populated -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Lower Grid: Employees Directory & Conflict Log -->
+    <div class="two-col-layout">
+      <!-- Employee Directory -->
+      <div class="card">
+        <h2>Employee Directory (Bonus: Total Shifts)</h2>
+        <div class="table-container">
+          <table class="grid-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Total Shifts</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="employeesTableBody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Conflict & Activity History -->
+      <div class="card">
+        <h2>Conflict & Action Log</h2>
+        <div id="logBox" class="log-box">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

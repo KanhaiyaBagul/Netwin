@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Parking & Slot Allocation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div>
+        <h1>Smart Parking System</h1>
+        <p>Problem Type: Nearest Slot Allocation & Exit Bill Calculator</p>
+      </div>
+      <div>
+        <a href="../index.html" class="nav-link">← All Projects</a>
+      </div>
+    </header>
+
+    <div id="alertBanner" class="alert-banner" role="alert"></div>
+
+    <!-- Quick Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Available Slots</div>
+        <div class="stat-value" id="statFree">10</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Parked Vehicles</div>
+        <div class="stat-value" id="statParked" style="color: #e53e3e;">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Total Revenue</div>
+        <div class="stat-value" id="statRevenue" style="color: #38a169;">$0.00</div>
+      </div>
+    </div>
+
+    <!-- Forms -->
+    <div class="content-grid">
+      <!-- Entry Form -->
+      <div class="card">
+        <h2>1. Park Vehicle (Auto-Allocate Slot)</h2>
+        <form id="parkForm">
+          <div class="form-group">
+            <label for="plateInput">License Plate Number *</label>
+            <input type="text" id="plateInput" placeholder="e.g. MH-12-AB-1234" required>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="typeInput">Vehicle Type</label>
+              <select id="typeInput">
+                <option value="Car">Car ($20/hr)</option>
+                <option value="Bike">Bike ($10/hr)</option>
+                <option value="Truck">Truck ($40/hr)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="timeInput">Entry Time</label>
+              <input type="time" id="timeInput" required>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-park">Allocate Nearest Slot</button>
+        </form>
+      </div>
+
+      <!-- Exit Form -->
+      <div class="card">
+        <h2>2. Process Vehicle Exit & Bill</h2>
+        <form id="exitForm">
+          <div class="form-group">
+            <label for="exitSelect">Select Parked Slot *</label>
+            <select id="exitSelect" required>
+              <option value="">-- Select Parked Slot --</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exitTimeInput">Exit Time *</label>
+            <input type="time" id="exitTimeInput" required>
+          </div>
+          <button type="submit" class="btn btn-exit">Process Exit & Release</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Parking Grid Status -->
+    <div class="card" style="margin-bottom: 20px;">
+      <h2>Parking Lot Live Grid</h2>
+      <div id="slotsGrid" class="slots-container">
+        <!-- Rendered slots -->
+      </div>
+    </div>
+
+    <!-- Tables -->
+    <div class="content-grid">
+      <div class="card">
+        <h2>Active Parked Vehicles</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Slot</th>
+              <th>Plate</th>
+              <th>Type</th>
+              <th>Entry</th>
+            </tr>
+          </thead>
+          <tbody id="parkedBody"></tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>Activity & Receipts Log</h2>
+        <div id="logBox" class="log-box"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

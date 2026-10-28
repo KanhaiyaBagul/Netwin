@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Queue Management & Priority Token System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div>
+        <h1>Queue Management & Token Dispatcher</h1>
+        <p>Assignment Type 7: Priority Queues, VIP Fast-Track & Counter Dispatch</p>
+      </div>
+      <div>
+        <a href="../index.html" class="nav-link">← All Projects</a>
+      </div>
+    </header>
+
+    <div id="alertBanner" class="alert-banner" role="alert"></div>
+
+    <!-- Active Counters -->
+    <div class="counters-grid">
+      <div class="counter-card">
+        <h3>Counter 1 (General Service)</h3>
+        <div class="token-large" id="counter1Token">--</div>
+        <div class="counter-status" id="counter1Status">Available</div>
+        <button id="btnServe1" class="btn-serve">Call Next</button>
+      </div>
+
+      <div class="counter-card">
+        <h3>Counter 2 (Express Service)</h3>
+        <div class="token-large" id="counter2Token">--</div>
+        <div class="counter-status" id="counter2Status">Available</div>
+        <button id="btnServe2" class="btn-serve-vip">Call Next (VIP / Fast)</button>
+      </div>
+    </div>
+
+    <!-- Token Generator & Waiting List -->
+    <div class="content-grid">
+      <!-- Issue Token -->
+      <div class="panel">
+        <h2>1. Generate Token</h2>
+        <form id="tokenForm">
+          <div class="form-group">
+            <label for="custName">Customer Name *</label>
+            <input type="text" id="custName" placeholder="e.g. David Miller" required>
+          </div>
+          <div class="form-group">
+            <label for="priority">Priority Level</label>
+            <select id="priority">
+              <option value="Regular">Regular Token</option>
+              <option value="VIP">VIP Priority (Jump to front)</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-ticket">Issue Ticket</button>
+        </form>
+      </div>
+
+      <!-- Queue Display -->
+      <div class="panel">
+        <h2>Live Waiting Queue (<span id="waitingCount">0</span>)</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Token #</th>
+              <th>Customer</th>
+              <th>Priority</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody id="queueBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

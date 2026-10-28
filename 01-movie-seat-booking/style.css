@@ -1,0 +1,373 @@
+/* 
+ * Stylesheet for Cinema Movie Seat Booking
+ * Problem Statement 1 (Set C)
+ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #f4f6f8;
+  color: #333333;
+  padding: 20px;
+}
+
+.main-container {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+/* Header */
+.page-header {
+  background-color: #ffffff;
+  padding: 16px 20px;
+  border-radius: 6px;
+  border: 1px solid #dddddd;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-header h1 {
+  font-size: 22px;
+  color: #222222;
+}
+
+.page-header p {
+  font-size: 13px;
+  color: #666666;
+  margin-top: 4px;
+}
+
+.back-link {
+  font-size: 13px;
+  color: #0056b3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* Status message alert banner */
+.message-banner {
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 18px;
+  display: none;
+}
+
+.message-banner.success {
+  display: block;
+  background-color: #e6f4ea;
+  color: #137333;
+  border: 1px solid #b7e1cd;
+}
+
+.message-banner.error {
+  display: block;
+  background-color: #fce8e6;
+  color: #c5221f;
+  border: 1px solid #f5c2cb;
+}
+
+/* Three action panels: Setup, Book, Cancel */
+.controls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.panel {
+  background-color: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-radius: 6px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.panel h2 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eeeeee;
+  color: #333333;
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #444444;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+/* Inputs: clean white boxes as requested in problem description */
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #ffffff;
+}
+
+input:focus {
+  outline: none;
+  border-color: #0066cc;
+}
+
+/* Buttons: Green for Book, Red for Cancel as specified */
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 9px 14px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-setup {
+  background-color: #0066cc;
+  color: #ffffff;
+}
+
+.btn-setup:hover {
+  background-color: #0052a3;
+}
+
+.btn-book {
+  background-color: #28a745;
+  color: #ffffff;
+}
+
+.btn-book:hover {
+  background-color: #218838;
+}
+
+.btn-cancel {
+  background-color: #dc3545;
+  color: #ffffff;
+}
+
+.btn-cancel:hover {
+  background-color: #c82333;
+}
+
+.helper-text {
+  font-size: 11px;
+  color: #777777;
+  margin-top: 6px;
+}
+
+/* Quick test button row */
+.test-bar {
+  background-color: #ffffff;
+  border: 1px dashed #0066cc;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.test-btn {
+  background-color: #eef5fc;
+  color: #0056b3;
+  border: 1px solid #b8daff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.test-btn:hover {
+  background-color: #dbe9f9;
+}
+
+/* Seat map section */
+.layout-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.screen-box {
+  background-color: #e9ecef;
+  color: #495057;
+  text-align: center;
+  padding: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 10px 0 16px 0;
+  border-radius: 4px;
+}
+
+.seat-map {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 6px 0;
+  overflow-x: auto;
+}
+
+.seat-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.row-name {
+  width: 25px;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+}
+
+.seats-list {
+  display: flex;
+  gap: 8px;
+}
+
+/* Seat boxes: green is booked, grey is empty */
+.seat {
+  width: 44px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.seat.empty {
+  background-color: #dcdcdc;
+  color: #444444;
+  border: 1px solid #c0c0c0;
+}
+
+.seat.booked {
+  background-color: #28a745;
+  color: #ffffff;
+  border: 1px solid #1e7e34;
+}
+
+.seat-bkg-tag {
+  font-size: 9px;
+  font-weight: normal;
+}
+
+/* Stats counter */
+.stats-summary {
+  display: flex;
+  gap: 15px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #eeeeee;
+  font-size: 13px;
+}
+
+.stats-summary strong {
+  color: #0066cc;
+}
+
+/* Bookings & audit log tables */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.data-table th,
+.data-table td {
+  padding: 8px 10px;
+  border: 1px solid #e0e0e0;
+  text-align: left;
+}
+
+.data-table th {
+  background-color: #f7f7f7;
+  color: #555555;
+}
+
+.badge-tag {
+  background-color: #e6f4ea;
+  color: #137333;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.btn-small-cancel {
+  background-color: #dc3545;
+  color: #ffffff;
+  border: none;
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.btn-small-cancel:hover {
+  background-color: #bd2130;
+}
+
+.log-container {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #e0e0e0;
+  margin-top: 8px;
+  background-color: #fafafa;
+}
+
+.log-row {
+  padding: 6px 10px;
+  border-bottom: 1px solid #eeeeee;
+  font-size: 12px;
+  font-family: monospace;
+}
+
+.log-row.success { color: #155724; }
+.log-row.error { color: #721c24; }

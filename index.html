@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Hiring - Technical Coding Assessments</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    body {
+      background-color: #f7f9fa;
+      color: #333333;
+      padding: 24px 20px;
+    }
+    .wrapper {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+    .hero-box {
+      background-color: #ffffff;
+      border: 1px solid #dcdcdc;
+      border-left: 5px solid #0066cc;
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .hero-box h1 {
+      font-size: 24px;
+      color: #222222;
+      margin-bottom: 6px;
+    }
+    .hero-box p {
+      font-size: 14px;
+      color: #666666;
+      line-height: 1.5;
+    }
+    .section-title {
+      font-size: 18px;
+      color: #222222;
+      margin-bottom: 14px;
+      font-weight: bold;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+    .project-card {
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.15s ease;
+    }
+    .project-card:hover {
+      border-color: #0066cc;
+    }
+    .project-card.featured {
+      border-top: 4px solid #28a745;
+    }
+    .card-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 2px 7px;
+      border-radius: 3px;
+      margin-bottom: 8px;
+      background-color: #e8f4fd;
+      color: #0066cc;
+    }
+    .tag-green {
+      background-color: #e6f4ea;
+      color: #137333;
+    }
+    .project-card h3 {
+      font-size: 17px;
+      color: #222222;
+      margin-bottom: 6px;
+    }
+    .project-card p {
+      font-size: 13px;
+      color: #666666;
+      line-height: 1.4;
+      margin-bottom: 14px;
+      flex-grow: 1;
+    }
+    .btn-launch {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background-color: #0066cc;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 9px 12px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+    .btn-launch:hover {
+      background-color: #0052a3;
+    }
+    .btn-launch.green {
+      background-color: #28a745;
+    }
+    .btn-launch.green:hover {
+      background-color: #218838;
+    }
+    .notes-box {
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 18px;
+      margin-top: 10px;
+    }
+    .notes-box h2 {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #222222;
+    }
+    .notes-box ul {
+      margin-left: 20px;
+      font-size: 13px;
+      color: #555555;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="hero-box">
+      <h1>Campus Hiring Assessment Solutions</h1>
+      <p>
+        Clean, self-contained development tasks built using plain HTML, CSS, and Vanilla JavaScript.
+        Each folder is standalone with its own dedicated CSS and JavaScript, prioritizing business rules,
+        boundary conditions, and the exact order of checks tested by hiring evaluators.
+      </p>
+    </div>
+
+    <div class="section-title">Exam Assignments & Practice Tests</div>
+
+    <div class="project-grid">
+      <!-- Assignment 1 -->
+      <div class="project-card featured">
+        <div>
+          <span class="card-tag tag-green">Assigned Paper 1 (Set C)</span>
+          <h3>1. Movie Seat Booking</h3>
+          <p>
+            Cinema seating with leftmost contiguous seat allocation in row order (A before B).
+            Enforces strict checks: INVALID COUNT, NO SEATS TOGETHER, INVALID BOOKING, and BOOKING NOT FOUND.
+            Includes the automated 7-step walkthrough from the question paper.
+          </p>
+        </div>
+        <a href="01-movie-seat-booking/index.html" class="btn-launch green">Open Assignment 1 ➔</a>
+      </div>
+
+      <!-- Assignment 2 -->
+      <div class="project-card featured">
+        <div>
+          <span class="card-tag tag-green">Assigned Paper 2</span>
+          <h3>2. Employee Shift Scheduling</h3>
+          <p>
+            Employee management, shift creation, and zero-overlap scheduling logic.
+            Handles the exact test benchmark: <code>9:00-13:00</code> vs <code>13:00-16:00</code> (Allowed - touching ends)
+            vs <code>12:00-15:00</code> (Rejected with conflict error). Supports overnight shifts and persistence.
+          </p>
+        </div>
+        <a href="02-shift-scheduling/index.html" class="btn-launch green">Open Assignment 2 ➔</a>
+      </div>
+
+      <!-- Assignment 3 -->
+      <div class="project-card">
+        <div>
+          <span class="card-tag">Practice Question</span>
+          <h3>3. Smart Parking System</h3>
+          <p>
+            Automatic nearest slot allocation, vehicle category rates ($10 Bike, $20 Car, $40 Truck),
+            exit duration calculator, and real-time visual slot grid.
+          </p>
+        </div>
+        <a href="03-parking-system/index.html" class="btn-launch">Open Parking System ➔</a>
+      </div>
+
+      <!-- Assignment 4 -->
+      <div class="project-card">
+        <div>
+          <span class="card-tag">Practice Question</span>
+          <h3>4. Library Issue & Return</h3>
+          <p>
+            Book catalog tracking, available copies counter, duplicate member loan prevention,
+            and automatic stock restoration upon return.
+          </p>
+        </div>
+        <a href="04-library-system/index.html" class="btn-launch">Open Library System ➔</a>
+      </div>
+
+      <!-- Assignment 5 -->
+      <div class="project-card">
+        <div>
+          <span class="card-tag">Practice Question</span>
+          <h3>5. Inventory Stock Guard</h3>
+          <p>
+            Product catalog management, restock flow, and sale processing with strict negative stock prevention
+            and low-stock threshold warning badges.
+          </p>
+        </div>
+        <a href="05-inventory-system/index.html" class="btn-launch">Open Inventory System ➔</a>
+      </div>
+
+      <!-- Assignment 6 -->
+      <div class="project-card">
+        <div>
+          <span class="card-tag">Practice Question</span>
+          <h3>6. Expense Tracker & Filter</h3>
+          <p>
+            Add expense entries, multi-field filtering by date and category, running balance calculations,
+            category breakdown, and monthly budget limit warning.
+          </p>
+        </div>
+        <a href="06-expense-tracker/index.html" class="btn-launch">Open Expense Tracker ➔</a>
+      </div>
+
+      <!-- Assignment 7 -->
+      <div class="project-card">
+        <div>
+          <span class="card-tag">Practice Question</span>
+          <h3>7. Queue Management</h3>
+          <p>
+            Token dispenser supporting Regular and VIP priority queues, counter dispatching,
+            and priority-ordered waiting list.
+          </p>
+        </div>
+        <a href="07-queue-management/index.html" class="btn-launch">Open Queue System ➔</a>
+      </div>
+
+      <!-- Universal Dashboard Starter -->
+      <div class="project-card featured" style="border-top-color: #0066cc;">
+        <div>
+          <span class="card-tag" style="background-color: #e8f4fd; color: #0066cc;">Starter Template</span>
+          <h3>Simple Management Template</h3>
+          <p>
+            A clean, basic starter with an add form, search filter, status toggle, and data table.
+            Easily editable for any new management or CRUD problem in test assignments.
+          </p>
+        </div>
+        <a href="universal-dashboard/index.html" class="btn-launch">Open Simple Template ➔</a>
+      </div>
+    </div>
+
+    <div class="notes-box">
+      <h2>Important Evaluation Reminders for Hiring Tests:</h2>
+      <ul>
+        <li><strong>Separate logic from screen:</strong> Put core rules in standalone functions/classes before touching the DOM.</li>
+        <li><strong>Order of checks matters:</strong> Always test for empty/invalid inputs first before checking resource availability.</li>
+        <li><strong>Touching intervals are NOT overlaps:</strong> <code>startA &lt; endB &amp;&amp; endA &gt; startB</code> correctly handles exact touching times like 13:00.</li>
+        <li><strong>No external frameworks:</strong> Everything is written in clean, readable, plain Vanilla JavaScript and CSS.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,278 @@
+/*
+ * Stylesheet for Parking Slot Allocation System
+ * Assignment Type 3
+ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #f7f9fa;
+  color: #333333;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #ffffff;
+  padding: 18px 20px;
+  border-radius: 6px;
+  border: 1px solid #e1e4e8;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 22px;
+  color: #1a202c;
+}
+
+.header p {
+  font-size: 13px;
+  color: #718096;
+  margin-top: 4px;
+}
+
+.nav-link {
+  font-size: 13px;
+  color: #2b6cb0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.alert-banner {
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 18px;
+  display: none;
+}
+
+.alert-banner.success {
+  display: block;
+  background-color: #def7ec;
+  color: #03543f;
+  border: 1px solid #bcf0da;
+}
+
+.alert-banner.error {
+  display: block;
+  background-color: #fde8e8;
+  color: #9b1c1c;
+  border: 1px solid #f8b4b4;
+}
+
+/* Stat row */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 14px;
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #718096;
+  font-weight: bold;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2b6cb0;
+  margin-top: 4px;
+}
+
+/* Two-column layout */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.card h2 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #edf2f7;
+  color: #2d3748;
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #4a5568;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+input[type="text"],
+input[type="time"],
+select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  font-size: 13px;
+  background-color: #ffffff;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #3182ce;
+}
+
+.btn {
+  width: 100%;
+  padding: 9px;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.btn-park {
+  background-color: #38a169;
+}
+.btn-park:hover {
+  background-color: #2f855a;
+}
+
+.btn-exit {
+  background-color: #e53e3e;
+}
+.btn-exit:hover {
+  background-color: #c53030;
+}
+
+/* Parking Slots Grid */
+.slots-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.slot-box {
+  padding: 10px 8px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 80px;
+}
+
+.slot-box.free {
+  background-color: #f0fdf4;
+  border: 2px dashed #86efac;
+  color: #166534;
+}
+
+.slot-box.occupied {
+  background-color: #fee2e2;
+  border: 2px solid #ef4444;
+  color: #991b1b;
+}
+
+.slot-code {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.slot-plate {
+  font-family: monospace;
+  font-weight: bold;
+  margin: 3px 0;
+}
+
+/* Tables */
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+table.data-table th,
+table.data-table td {
+  padding: 8px 10px;
+  border: 1px solid #edf2f7;
+  text-align: left;
+}
+
+table.data-table th {
+  background-color: #f7fafc;
+  color: #4a5568;
+}
+
+.log-box {
+  max-height: 180px;
+  overflow-y: auto;
+  border: 1px solid #edf2f7;
+  background-color: #fafafa;
+  font-family: monospace;
+  font-size: 11px;
+}
+
+.log-item {
+  padding: 6px 10px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.log-item.success { color: #276749; }
+.log-item.error { color: #c53030; }

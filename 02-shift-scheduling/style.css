@@ -1,0 +1,372 @@
+/*
+ * Stylesheet for Employee Shift Scheduling System
+ * Problem Statement 2 - Campus Hiring Hackathon
+ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #f7f9fa;
+  color: #333333;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Header */
+.top-header {
+  background-color: #ffffff;
+  padding: 18px 22px;
+  border-radius: 6px;
+  border: 1px solid #e1e4e8;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-header h1 {
+  font-size: 22px;
+  color: #1a202c;
+}
+
+.top-header p {
+  font-size: 13px;
+  color: #718096;
+  margin-top: 4px;
+}
+
+.nav-link {
+  font-size: 13px;
+  color: #2b6cb0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+/* Notification & Conflict Alert Banner */
+.alert-box {
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  display: none;
+}
+
+.alert-box.success {
+  display: block;
+  background-color: #def7ec;
+  color: #03543f;
+  border: 1px solid #bcf0da;
+}
+
+.alert-box.error {
+  display: block;
+  background-color: #fde8e8;
+  color: #9b1c1c;
+  border: 1px solid #f8b4b4;
+}
+
+/* Exam Benchmark Action Bar */
+.benchmark-card {
+  background-color: #ebf8ff;
+  border: 1px solid #bee3f8;
+  border-radius: 6px;
+  padding: 12px 18px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.benchmark-card strong {
+  color: #2c5282;
+}
+
+.btn-benchmark {
+  background-color: #3182ce;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-benchmark:hover {
+  background-color: #2b6cb0;
+}
+
+.btn-reset {
+  background-color: #e53e3e;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-reset:hover {
+  background-color: #c53030;
+}
+
+/* Form Sections */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 18px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.card h2 {
+  font-size: 16px;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #edf2f7;
+  color: #2d3748;
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #4a5568;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  font-size: 13px;
+  background-color: #ffffff;
+  color: #2d3748;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #3182ce;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #4a5568;
+  cursor: pointer;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 9px;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #ffffff;
+  margin-top: 6px;
+}
+
+.btn-blue {
+  background-color: #3182ce;
+}
+.btn-blue:hover {
+  background-color: #2b6cb0;
+}
+
+.btn-green {
+  background-color: #38a169;
+}
+.btn-green:hover {
+  background-color: #2f855a;
+}
+
+/* Filter Bar */
+.filter-bar {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 12px 18px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.filter-group input[type="date"] {
+  width: auto;
+}
+
+/* Tables */
+.table-container {
+  overflow-x: auto;
+}
+
+table.grid-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+table.grid-table th,
+table.grid-table td {
+  padding: 10px 12px;
+  border: 1px solid #edf2f7;
+  text-align: left;
+}
+
+table.grid-table th {
+  background-color: #f7fafc;
+  color: #4a5568;
+  font-weight: bold;
+}
+
+table.grid-table tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Employee Tag Pills inside Shifts Table */
+.employee-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #edf2f7;
+  border: 1px solid #cbd5e0;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  margin: 2px;
+}
+
+.remove-tag-btn {
+  background: none;
+  border: none;
+  color: #e53e3e;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.badge-overnight {
+  background-color: #feebc8;
+  color: #c05621;
+}
+
+.badge-day {
+  background-color: #e2e8f0;
+  color: #4a5568;
+}
+
+.btn-table-delete {
+  background-color: transparent;
+  border: 1px solid #feb2b2;
+  color: #e53e3e;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.btn-table-delete:hover {
+  background-color: #fff5f5;
+}
+
+/* Layout 2-col for lower section */
+.two-col-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .two-col-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.log-box {
+  max-height: 190px;
+  overflow-y: auto;
+  border: 1px solid #edf2f7;
+  background-color: #fafafa;
+  font-family: monospace;
+  font-size: 11px;
+}
+
+.log-entry {
+  padding: 6px 10px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.log-entry.conflict {
+  color: #c53030;
+  background-color: #fff5f5;
+}
+
+.log-entry.success {
+  color: #276749;
+}

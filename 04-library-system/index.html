@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Issue & Return System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div>
+        <h1>Library Book Issue & Return System</h1>
+        <p>Assignment Type 4: Inventory Tracking, Member Limits & Book Availability</p>
+      </div>
+      <div>
+        <a href="../index.html" class="nav-link">← All Projects</a>
+      </div>
+    </header>
+
+    <div id="statusBanner" class="banner" role="alert"></div>
+
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-label">Book Titles</div>
+        <div class="stat-number" id="statTitles">0</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Available Copies</div>
+        <div class="stat-number" id="statAvailable" style="color: #38a169;">0</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Issued Copies</div>
+        <div class="stat-number" id="statIssued" style="color: #d69e2e;">0</div>
+      </div>
+    </div>
+
+    <div class="forms-grid">
+      <!-- Add Book -->
+      <div class="panel">
+        <h2>1. Add Book Title</h2>
+        <form id="addBookForm">
+          <div class="form-group">
+            <label for="isbn">ISBN / Code *</label>
+            <input type="text" id="isbn" placeholder="e.g. 978-013" required>
+          </div>
+          <div class="form-group">
+            <label for="title">Book Title *</label>
+            <input type="text" id="title" placeholder="e.g. Clean Code" required>
+          </div>
+          <div class="form-group">
+            <label for="copies">Total Copies</label>
+            <input type="number" id="copies" min="1" value="3" required>
+          </div>
+          <button type="submit" class="btn btn-blue">Add to Catalog</button>
+        </form>
+      </div>
+
+      <!-- Issue Book -->
+      <div class="panel">
+        <h2>2. Issue Book</h2>
+        <form id="issueForm">
+          <div class="form-group">
+            <label for="memberName">Member Name / ID *</label>
+            <input type="text" id="memberName" placeholder="e.g. Rahul Sharma" required>
+          </div>
+          <div class="form-group">
+            <label for="bookSelect">Select Book *</label>
+            <select id="bookSelect" required>
+              <option value="">-- Choose Book --</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-green">Issue Book</button>
+        </form>
+      </div>
+
+      <!-- Return Book -->
+      <div class="panel">
+        <h2>3. Return Book</h2>
+        <form id="returnForm">
+          <div class="form-group">
+            <label for="loanSelect">Select Issued Book *</label>
+            <select id="loanSelect" required>
+              <option value="">-- Choose Issued Book --</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-red">Return & Restock</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Catalog Table -->
+    <div class="panel">
+      <h2>Book Catalog & Stock Status</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ISBN</th>
+            <th>Title</th>
+            <th>Total Copies</th>
+            <th>Available</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="catalogBody"></tbody>
+      </table>
+    </div>
+
+    <div class="layout-2col">
+      <div class="panel">
+        <h2>Active Borrowed Books</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Member</th>
+              <th>Book</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="loansBody"></tbody>
+        </table>
+      </div>
+
+      <div class="panel">
+        <h2>Activity History</h2>
+        <div id="logBox" class="log-box"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
